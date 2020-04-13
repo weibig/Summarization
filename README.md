@@ -4,21 +4,21 @@
 ### Extractive Summary
 ```bash
 bash download.sh
-bash extractive.sh
+bash extractive.sh "${TEST_FILE}" "${EXT_FILE}"
 ```
 
 
 ### Abstractive Summary
 ```bash
 bash download.sh
-bash seq2seq.sh
+bash seq2seq.sh "${TEST_FILE}" "${S2S_FILE}"
 ```
 
 
 ### Abstractive (with attention) Summary
 ```bash
 bash download.sh
-bash attention.sh
+bash attention.sh "${TEST_FILE}" "${ATT_FILE}"
 ```
 
 
