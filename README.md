@@ -1,5 +1,27 @@
 # ADL HW1
 
+## Implement Prediction
+### Extractive Summary
+```bash
+bash download.sh
+bash extractive.sh
+```
+
+
+### Abstractive Summary
+```bash
+bash download.sh
+bash seq2seq.sh
+```
+
+
+### Abstractive (with attention) Summary
+```bash
+bash download.sh
+bash attention.sh
+```
+
+
 ## Training Model
 ### Extractive Summary
 ```bash
