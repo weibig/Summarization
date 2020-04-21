@@ -181,5 +181,5 @@ for i, p in zip(ids, predictions):
     #print(sent_probs)
     final_ans.append({'id': i, 'predict': p})
 
-Path('predict.jsonl').write_text('\n'.join([json.dumps(ans) for ans in final_ans])+'\n')
+output_file.write_text('\n'.join([json.dumps(ans) for ans in final_ans])+'\n')
 

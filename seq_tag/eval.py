@@ -88,7 +88,7 @@ def create_seq_tag_dataset(samples, save_path, padding=0):
 main(args.test_data_path)
 
 
-hparams = Namespace(**{
+test_hparams = Namespace(**{
         'embedding_path': "./seq_tag/embedding.pkl",
         'embed_size': 300,
 
@@ -106,8 +106,8 @@ hparams = Namespace(**{
         'rnn_hidden_size': 300,
     })
 
-seq_tagger = SeqTagger(hparams)
-seq_tagger = seq_tagger.load_from_checkpoint("./seq_tag/seq_tag.ckpt")
+seq_tagger = SeqTagger(test_hparams)
+seq_tagger = seq_tagger.load_from_checkpoint("./seq_tag/seq_tag.ckpt", hparams=test_hparams)
 trainer = pl.Trainer()
 trainer.test(seq_tagger)
 
