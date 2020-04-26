@@ -87,15 +87,14 @@ def create_seq_tag_dataset(samples, save_path, padding=0):
 
 main(args.test_data_path)
 
-
-test_hparams = Namespace(**{
+hparams = {
         'embedding_path': "./seq_tag/embedding.pkl",
         'embed_size': 300,
 
         'train_dataset_path': "./seq_tag/train.pkl",
         'valid_dataset_path': "./seq_tag/valid.pkl",
 
-        'test_dataset_path': args.test_data_path,####
+        'test_dataset_path': "./seq_tag/test.pkl",####
         'ignore_idx': -100,
 
         'batch_size': 16,
@@ -104,10 +103,12 @@ test_hparams = Namespace(**{
     #     the number of false negatives will artificially increase.
 
         'rnn_hidden_size': 300,
-    })
-
+    }
+test_hparams = Namespace(**hparams)
 seq_tagger = SeqTagger(test_hparams)
-seq_tagger = seq_tagger.load_from_checkpoint("./seq_tag/seq_tag.ckpt", hparams=test_hparams)
+seq_tagger.load_state_dict(torch.load("./seq_tag/seq_tag.ckpt"), strict=False)
+
+
 trainer = pl.Trainer()
 trainer.test(seq_tagger)
 

@@ -10,7 +10,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader,Dataset
 import pytorch_lightning as pl
 from torch.autograd import Variable
-import tensorflow as tf
+# import tensorflow as tf
 from torch import optim
 import torch.nn.functional as F
 import math
