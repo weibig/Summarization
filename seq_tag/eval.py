@@ -101,7 +101,6 @@ hparams = {
         'pos_weight': 5, # TODO
     #     When you increase the pos_weight, 
     #     the number of false negatives will artificially increase.
-
         'rnn_hidden_size': 300,
     }
 test_hparams = Namespace(**hparams)
